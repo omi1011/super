@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import org.springframework.stereotype.Component;
 
@@ -30,11 +31,14 @@ public class Employee {
 	private String mail;
 	private String passw;
 	//private String confirmPassw;
-	private String catagory;
+	//private String catagory;
 	private String dob;
 	private String adhar;
 	private String currentAddress;
 	private Boolean status;
+	
+	@OneToOne
+	private Catagory catagory;
 	
 	
 	

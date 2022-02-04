@@ -42,18 +42,12 @@ public class ResourceEmp {
 		return response;
 	}
 	
-	@Autowired
-	LoginService loginService;
-	@Autowired
-	Employee emp;
-	@GetMapping("login")
+
+	@PostMapping("login")
 	public String loginEmployee(@RequestBody LoginDto login) {
-		if (login.getMobileNo().equals(emp.getMobileNo()) 
-		&& login.getPassw().equals(emp.getPassw())) {
-			return "login succesfully" ;
-		}
-		return "wrong pass or wrong mobile No."; // or we can give exception
-//	loginService.loginEmp(login);
+		String empBy = service.getEmpByMobileNoAndPassw(login.getMobileNo(), login.getPassw());
+		return empBy;
+	
 	}
 	
 	@GetMapping("allemployee")

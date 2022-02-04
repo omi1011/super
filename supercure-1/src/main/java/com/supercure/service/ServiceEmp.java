@@ -94,4 +94,16 @@ public class ServiceEmp {
 		
 	}
 	
+	public String getEmpByMobileNoAndPassw(String mobileNo, String passw) {
+		Employee findEmployee = repo.findEmployeeByMobileNoAndPassw(mobileNo, passw);
+		String msg=null;
+		if (findEmployee==null) {
+			msg= "invalid credientials";
+		}
+		else {
+			msg="successfully login";	
+		}
+			return msg;
+	}
+	
 }

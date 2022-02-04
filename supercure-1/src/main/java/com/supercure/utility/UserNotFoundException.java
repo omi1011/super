@@ -8,12 +8,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class UserNotFoundException extends RuntimeException {
 
 	private String msg;
-	
-	public UserNotFoundException() {
-		// TODO Auto-generated constructor stub
-	}
-	
-
 	public UserNotFoundException(String msg) {
 		super();
 		this.msg = msg;

@@ -8,6 +8,7 @@ public interface DaoEmp extends JpaRepository<Employee, Long> {
 
 	Employee getEmployeeByName(String name);
 	
+	Employee findEmployeeByMobileNoAndPassw(String mobileNo, String passw);
 	
 
 }
