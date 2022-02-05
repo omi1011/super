@@ -17,7 +17,6 @@ import com.supercure.dto.DtoEmp;
 import com.supercure.dto.LoginDto;
 import com.supercure.dto.ResponseDto;
 import com.supercure.entity.Employee;
-import com.supercure.service.LoginService;
 import com.supercure.service.ServiceEmp;
 import com.supercure.utility.UserNotFoundException;
 // 1. register employee
