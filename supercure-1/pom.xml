@@ -10,8 +10,8 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.supercure</groupId>
-	<artifactId>supercure-1</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>supercure</artifactId>
+	<version>1.0</version>
 	<name>supercure-1</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
