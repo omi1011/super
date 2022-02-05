@@ -1,7 +1,6 @@
 package com.supercure.service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -17,11 +16,10 @@ import com.supercure.utility.UserNotFoundException;
 public class ServiceEmp {
 
 	@Autowired
-	DaoEmp repo;
+	private DaoEmp repo;
 	
 	ModelMapper modelMapper = new ModelMapper();
-	@Autowired
-	Employee employee;
+	
 	public DtoEmp createEmp(DtoEmp ele) {
 		Employee map = modelMapper.map(ele, Employee.class);
 		map.setStatus(true);

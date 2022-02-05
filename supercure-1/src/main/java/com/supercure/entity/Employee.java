@@ -6,14 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-import org.springframework.stereotype.Component;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Component
 @Entity
 @Data
 @NoArgsConstructor
@@ -37,8 +34,8 @@ public class Employee {
 	private String currentAddress;
 	private Boolean status;
 	
-	@OneToOne
-	private Catagory catagory;
+//	@OneToOne
+//	private Catagory catagory;
 	
 	
 	

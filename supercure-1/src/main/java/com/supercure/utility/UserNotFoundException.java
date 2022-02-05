@@ -9,8 +9,12 @@ public class UserNotFoundException extends RuntimeException {
 
 	private String msg;
 	public UserNotFoundException(String msg) {
-		super();
+		super(msg);
 		this.msg = msg;
+	}
+	
+	public UserNotFoundException() {
+		// TODO Auto-generated constructor stub
 	}
 	
 	

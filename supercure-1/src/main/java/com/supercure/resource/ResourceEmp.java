@@ -4,6 +4,7 @@ package com.supercure.resource;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,6 @@ import com.supercure.dto.DtoEmp;
 import com.supercure.dto.LoginDto;
 import com.supercure.dto.ResponseDto;
 import com.supercure.entity.Employee;
-import com.supercure.service.LoginService;
 import com.supercure.service.ServiceEmp;
 import com.supercure.utility.UserNotFoundException;
 // 1. register employee
@@ -25,6 +25,7 @@ import com.supercure.utility.UserNotFoundException;
 // 3. soft delete Employee
 // 4. get deleted employee
 // 5. login api 
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/employee/")
 public class ResourceEmp {
