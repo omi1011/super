@@ -14,9 +14,8 @@ import lombok.ToString;
 
 public class LoginDto {
 
-	private String mobileNo;
+	private String mail;
 	private String passw;
-	private String catagory;
-	
+
 	
 }

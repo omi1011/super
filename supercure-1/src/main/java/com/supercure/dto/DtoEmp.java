@@ -4,6 +4,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.supercure.entity.Catagory;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +28,7 @@ public class DtoEmp {
 	private String mail;
 	private String passw;
 //	private String confirmPassw;
-	private String catagory;
+	private Catagory catagory;
 	private String dob;
 	private String adhar;
 	private String currentAddress;

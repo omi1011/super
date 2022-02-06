@@ -46,7 +46,7 @@ public class ResourceEmp {
 
 	@PostMapping("login")
 	public String loginEmployee(@RequestBody LoginDto login) {
-		String empBy = service.getEmpByMobileNoAndPassw(login.getMobileNo(), login.getPassw());
+		String empBy = service.getEmpByMailAndPassw(login.getMail(), login.getPassw());
 		return empBy;
 	
 	}
@@ -90,5 +90,9 @@ public class ResourceEmp {
 		return service.getByName(name);
 	}
 	
+	@GetMapping("catagoryId/{id}")
+	public List<Employee> getEmployeesByCatagoryId(Long id){
+		return service.getEmployeesByCatagoryId(id);
+	}
 	
 }

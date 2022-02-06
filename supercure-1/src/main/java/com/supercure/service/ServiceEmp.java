@@ -62,6 +62,10 @@ public class ServiceEmp {
 			orElseThrow(()->new UserNotFoundException("This user is not present :" +id));
 	}
 	
+	public List<Employee> getEmployeesByCatagoryId(Long id){
+		return repo.findEmployeeByCatagoryId(id);
+	}
+	
 	public Employee updateEmp(Employee ele) {
 		return repo.save(ele);
 	}
@@ -92,8 +96,8 @@ public class ServiceEmp {
 		
 	}
 	
-	public String getEmpByMobileNoAndPassw(String mobileNo, String passw) {
-		Employee findEmployee = repo.findEmployeeByMobileNoAndPassw(mobileNo, passw);
+	public String getEmpByMailAndPassw(String mail, String passw) {
+		Employee findEmployee = repo.findEmployeeByMailAndPassw(mail, passw);
 		String msg=null;
 		if (findEmployee==null) {
 			msg= "invalid credientials";

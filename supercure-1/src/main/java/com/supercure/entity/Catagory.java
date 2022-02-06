@@ -21,7 +21,6 @@ import lombok.ToString;
 public class Catagory {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String catagoryName; // manager, telecaller etc.
 }

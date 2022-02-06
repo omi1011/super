@@ -14,7 +14,11 @@ class SwaggerConfig {
 
 	@Bean
 	public Docket appinfo() {
-		return new Docket(DocumentationType.SWAGGER_2).groupName("super").select().paths(PathSelectors.any()).build();
+		return new Docket(DocumentationType.SWAGGER_2)
+				.groupName("super")
+				.select()
+				.paths(PathSelectors.any())
+				.build();
 	}
 
 }
