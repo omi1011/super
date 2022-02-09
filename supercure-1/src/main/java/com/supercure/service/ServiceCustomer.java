@@ -12,7 +12,7 @@ import com.supercure.dto.DtoCustomerDetails;
 import com.supercure.entity.CustomerDetails;
 
 @Service
-public class ServiceTelecaller {
+public class ServiceCustomer {
 
 	@Autowired
 	DaoCustomerDetails repo;

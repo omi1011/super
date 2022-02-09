@@ -12,7 +12,7 @@ import lombok.ToString;
 @Setter
 @ToString
 
-public class DtoResponse {
+public class ApisResponse {
 
 	private String msg;	
 	

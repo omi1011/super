@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.supercure.configuration.ApisResponse;
 import com.supercure.dto.DtoEmp;
 import com.supercure.dto.LoginDto;
 import com.supercure.dto.ResponseDto;
@@ -30,14 +31,15 @@ import com.supercure.utility.UserNotFoundException;
 @RequestMapping("/employee/")
 public class ResourceEmp {
 	
+	
+	
 	@Autowired
 	ServiceEmp service;
 	@PostMapping("register")
-	public ResponseDto registerEmployee(@RequestBody DtoEmp emp) {
+	public ApisResponse registerEmployee(@RequestBody DtoEmp emp) {
 //		if(!emp.getPassw().equalsIgnoreCase(emp.getConfirmPassw())) {
-//			throw new RuntimeException("pass does not match");
-//		}
-		ResponseDto response = new ResponseDto();
+//			throw new RuntimeException("pass does not match");}
+		ApisResponse response = new ApisResponse();
 		service.createEmp(emp);
 		response.setMsg("Successfully registerd");
 		return response;
@@ -56,15 +58,11 @@ public class ResourceEmp {
 		return service.getAllEmp();
 	}
 	
-	@GetMapping("deleted/employee")
-	public List<Employee> deletedemployee(){
-		return service.getDeletedEmployee();
-	}
 	
 	// soft delete employee
-	@DeleteMapping("delete")
-	public void deleteEmployee(@RequestBody Employee e){
-		service.softDeleteEmp(e);
+	@DeleteMapping("delete/{id}")
+	public void deleteEmployee(@PathVariable("id") Long id){
+		service.deleteEmpById(id);
 	}
 	
 	@PutMapping("update/employee")
@@ -72,17 +70,24 @@ public class ResourceEmp {
 //		if(!emp.getPassw().equalsIgnoreCase(emp.getConfirmPassw())) {
 //			throw new RuntimeException("pass does not match");
 //		}
-		service.createEmp(emp);
+		service.updateEmp(emp);
 		return "Successfully registerd";
 	}
 	
+	// for by catagory id
+		// get employee by catagory id
+	@GetMapping("catagoryId/{id}")
+	public List<Employee> getEmployeesByCatagoryId(Long catagoryId){
+		return service.getEmployeesByCatagoryId(catagoryId);
+		}
+
 	@GetMapping("getby/{id}")
 	public Employee getById(@PathVariable("id") Long id) {
 		return service.getEmpById(id); // does not give exception why
 	}
 
 	@GetMapping("getname/{name}")
-	public Employee getById(@PathVariable("name") String name) {
+	public Employee getByName(@PathVariable("name") String name) {
 		Employee byName = service.getByName(name);
 		if (byName==null) {
 			throw new UserNotFoundException("user with name " +name +" is not available ");
@@ -90,9 +95,10 @@ public class ResourceEmp {
 		return service.getByName(name);
 	}
 	
-	@GetMapping("catagoryId/{id}")
-	public List<Employee> getEmployeesByCatagoryId(Long id){
-		return service.getEmployeesByCatagoryId(id);
+	@GetMapping("deleted/employee")
+	public List<Employee> deletedemployee(){
+		return service.getDeletedEmployee();
 	}
+
 	
 }

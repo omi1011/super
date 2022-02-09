@@ -34,8 +34,10 @@ public class Employee {
 	private String adhar;
 	private String currentAddress;
 	private Boolean status;
+	private Long catagoryId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	private Catagory catagory;
+
+//	@OneToOne(cascade = CascadeType.ALL)
+//	private Catagory catagory;
 	
 }

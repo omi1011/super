@@ -10,28 +10,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.supercure.configuration.DtoResponse;
+import com.supercure.configuration.ApisResponse;
 import com.supercure.dto.DtoCustomerDetails;
 import com.supercure.entity.CustomerDetails;
-import com.supercure.service.ServiceTelecaller;
+import com.supercure.service.ServiceCustomer;
 
 @RestController
 @RequestMapping("/customer/")
-public class ControllerTelecaller {
+public class ControllerCustomer {
 
 	@Autowired
-	ServiceTelecaller service;
+	ServiceCustomer service;
 
-	DtoResponse response = new DtoResponse();
+	ApisResponse response = new ApisResponse();
 	@PostMapping("create")
-	public DtoResponse createCustomer(@RequestBody DtoCustomerDetails customer) {
+	public ApisResponse createCustomer(@RequestBody DtoCustomerDetails customer) {
 		service.addCustomer(customer);
 		response.setMsg("Successfully created new customer ");
 		return response;
 	}
 	
 	@PostMapping("update")
-	public DtoResponse updateCustomer(@RequestBody DtoCustomerDetails customer) {
+	public ApisResponse updateCustomer(@RequestBody DtoCustomerDetails customer) {
 		service.addCustomer (customer);
 		response.setMsg("Successfully created new customer ");
 		return response;

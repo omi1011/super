@@ -28,10 +28,12 @@ public class DtoEmp {
 	private String mail;
 	private String passw;
 //	private String confirmPassw;
-	private Catagory catagory;
+//	private Catagory catagory;
+	private Long catagoryId;
 	private String dob;
 	private String adhar;
 	private String currentAddress;
+	
 
 
 }

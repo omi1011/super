@@ -1,12 +1,16 @@
 package com.supercure.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.springframework.data.annotation.CreatedBy;
@@ -32,12 +36,14 @@ public class CustomerDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	private String firstName;
 	private String lastName;
 	private String contactNo;
+	private String mail;
 	@OneToOne
 	private Addresses address; // complete address with pin code
-	private Date registerdDate; // when customer is joined i.e appointmentDate;
+	private LocalDate registerdDate; // when customer is joined i.e appointmentDate;
 	private String customerType; // amc or non amc
 	
 	
@@ -45,15 +51,18 @@ public class CustomerDetails {
 	// below fields should filled autometically by programmer
 	@Column(nullable = true, updatable = false)
 	@CreatedDate
-	private Date createdDate;
+	private LocalDate createdDate;
 	@LastModifiedDate
-	private Date updatedDate;
+	private LocalDate updatedDate;
 	@CreatedBy
 	private String createdBy;
 	@LastModifiedBy
 	private String updatedBy;
 	
 	private Boolean isActive=true;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Ticket> ticket;
 
 // just to know other another annotations
 //	 @CreationTimestamp
