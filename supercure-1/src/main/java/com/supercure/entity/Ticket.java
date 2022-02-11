@@ -1,6 +1,7 @@
 package com.supercure.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -33,7 +34,7 @@ public class Ticket {
 		private Boolean isActive;
 		private LocalDateTime date;
 		@OneToMany(cascade = CascadeType.ALL)		
-		private Complaint complaint;
+		private List<Complaint> complaint;
 		@OneToOne(cascade = CascadeType.ALL)
 		private Bill bill;
 		
