@@ -30,6 +30,8 @@ import lombok.ToString;
 
 public class ResponseCustomerDto {
 
+	// no need of this dto class just made for own reference
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

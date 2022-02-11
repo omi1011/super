@@ -75,7 +75,8 @@ public class ServiceEmp {
 	public void deleteEmpById(Long id) {
 		Optional<Employee> findById = repo.findById(id);
 		findById.orElseThrow(()-> new UserNotFoundException("given id is not present:" +id));
-		findById.ifPresent((emp)-> emp.setStatus(false) );
+		findById.ifPresent((emp)-> {emp.setStatus(false); repo.save(emp);}  );
+		
 	}
 
 	

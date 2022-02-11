@@ -1,14 +1,16 @@
 package com.supercure.dto;
 
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDateTime;
 
-import javax.persistence.Entity;
+import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
-import org.apache.tomcat.jni.Address;
+import com.supercure.entity.Bill;
+import com.supercure.entity.Complaint;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,8 +28,14 @@ public class TicketDto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String complaint;
-	private String createdBy;
-	private Date createdOn;
+	private Integer customerId;
+	private String ticketId;
+	private Boolean isActive;
+	private LocalDateTime date;
+	@OneToMany(cascade = CascadeType.ALL)		
+	private Complaint complaint;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Bill bill;
+	
 	
 }
