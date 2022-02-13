@@ -1,5 +1,7 @@
 package com.supercure.dto;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -37,7 +39,7 @@ public class DtoCustomerDetails {
 	private String customerType; // amc or non amc
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	private Ticket ticket;
+	private List<Ticket> tickets;
 
 	
 }

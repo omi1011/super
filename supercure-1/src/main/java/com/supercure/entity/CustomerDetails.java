@@ -18,6 +18,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,7 +47,10 @@ public class CustomerDetails {
 	private Addresses address; // complete address with pin code
 	private LocalDate registerdDate; // when customer is joined i.e appointmentDate;
 	private String customerType; // amc or non amc
-	
+
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Ticket> tickets;
+
 	
 	// below fields show only in get method not in post method 
 	// below fields should filled autometically by programmer
@@ -61,8 +66,6 @@ public class CustomerDetails {
 	
 	private Boolean isActive=true;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Ticket> ticket;
 
 // just to know other another annotations
 //	 @CreationTimestamp
