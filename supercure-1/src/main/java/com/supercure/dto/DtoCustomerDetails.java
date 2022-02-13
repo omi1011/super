@@ -4,9 +4,11 @@ import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.supercure.entity.Addresses;
+import com.supercure.entity.Ticket;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,6 +35,9 @@ public class DtoCustomerDetails {
 	private Addresses address; // complete address with pin code
 	private String registerdDate; // when customer is joined i.e appointmentDate;
 	private String customerType; // amc or non amc
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	private Ticket ticket;
 
 	
 }
