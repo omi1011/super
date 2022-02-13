@@ -29,8 +29,10 @@ public class Ticket {
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private Long id;
-		private Integer customerId;
-		private String ticketId;
+		private Long customerId;
+		private Long engineerId;
+		private Long reporterId;
+		//private String ticketId;
 		private Boolean isActive=true;
 		private LocalDateTime date = LocalDateTime.now();
 		@OneToMany(cascade = CascadeType.ALL)		
