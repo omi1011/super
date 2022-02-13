@@ -38,7 +38,7 @@ public class ControllerCustomer {
 		return response;
 	}
 	
-	@DeleteMapping("delete/{id}")
+	@DeleteMapping("delete/id/{id}")
 	public void deleteCustomer(@PathVariable("id") Long id) {
 		service.deleteCustomerById(id);
 	}
@@ -46,6 +46,11 @@ public class ControllerCustomer {
 	@GetMapping("getcustomers")
 	public List<CustomerDetails> getAllCustomer(){
 		return service.getAllCustomer();
+	}
+	
+	@GetMapping("id/{id}")
+	public DtoCustomerDetails getByid(@PathVariable("id") Long id) {
+		return service.getById(id);
 	}
 	
 	

@@ -41,7 +41,7 @@ public class CustomerDetails {
 	private String lastName;
 	private String contactNo;
 	private String mail;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Addresses address; // complete address with pin code
 	private LocalDate registerdDate; // when customer is joined i.e appointmentDate;
 	private String customerType; // amc or non amc

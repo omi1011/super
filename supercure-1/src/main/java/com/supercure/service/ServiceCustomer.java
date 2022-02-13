@@ -47,7 +47,7 @@ public class ServiceCustomer {
 	public void deleteCustomerById(Long id) {
 		Optional<CustomerDetails> findById = repo.findById(id);
 		findById.orElseThrow(()-> new UserNotFoundException("user not present :" +id));
-		findById.ifPresent((cus)-> cus.setIsActive(false));
+		findById.ifPresent((cus)-> {cus.setIsActive(false); repo.save(cus);});
 	}
 	
 	// how to get customer details only we want
@@ -58,5 +58,11 @@ public class ServiceCustomer {
 						.collect(Collectors.toList());
 		return collect;
 		
+	}
+	
+	public DtoCustomerDetails getById(Long id) {
+		CustomerDetails customerDetails = repo.findById(id).get();
+		DtoCustomerDetails map = modelMapper.map(customerDetails, DtoCustomerDetails.class);
+		return map;
 	}
 }

@@ -38,9 +38,9 @@ public class TicketService {
 	
 	public void deleteTicket(Long id) {
 		Optional<Ticket> findById = ticketRepo.findById(id);
-		findById.ifPresent((ticket)-> ticket.setIsActive(false));
-		findById.orElseThrow(()-> new UserNotFoundException("wrong id "+ id));
+		findById.ifPresent((ticket)-> {ticket.setIsActive(false); ticketRepo.save(ticket);});
 		
+		findById.orElseThrow(()-> new UserNotFoundException("wrong id "+ id));
 	}
 	
 	public List<Ticket> getallTicket(){

@@ -1,5 +1,6 @@
 package com.supercure.dto;
 
+import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class DtoCustomerDetails {
 	private String contactNo;
 	private String mail;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Addresses address; // complete address with pin code
 	private String registerdDate; // when customer is joined i.e appointmentDate;
 	private String customerType; // amc or non amc
