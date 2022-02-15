@@ -35,6 +35,7 @@ public class Ticket {
 		//private String ticketId;
 		private Boolean isActive=true;
 		private LocalDateTime date = LocalDateTime.now();
+		private Long reply_id; 
 		@OneToMany(cascade = CascadeType.ALL)		
 		private List<Complaint> complaint;
 		@OneToOne(cascade = CascadeType.ALL)
